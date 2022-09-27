@@ -66,6 +66,7 @@ Data yang saya olah merupakan dataset film yang telah diberi rating oleh user. D
 
 Top-N recommendation
 
+    Tabel.1 Top-N Recommendation
 | Movies Name                  | Rating |
 |------------------------------|--------|
 | ('The Wizard')               | 5      |
@@ -81,6 +82,7 @@ Top-N recommendation
 
 Melakukan Training proses
 
+    Tabel.2 Model Summary
 | Model: "model"                                                                                     |               |         |                            |
 |----------------------------------------------------------------------------------------------------|---------------|---------|----------------------------|
 | __________________________________________________________________________________________________ |               |         |                            |
@@ -116,6 +118,7 @@ Metrik yang digunakan untuk mengevaluasi model adalah RMSE. *Root Mean Squared E
 
 Berikut hasil dari Training yang didapat
 
+    Tabel.3 Training Model
 | Epoch 1/20                                                                                                                                                         |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 425/425 [==============================] - 41s 90ms/step - loss: 0.3106 - root_mean_squared_error: 0.5573 - val_loss: 0.0872 - val_root_mean_squared_error: 0.2954 |
@@ -141,9 +144,10 @@ Hasil dari training menunjukan model berhenti melatih data setelah epochs ke-4
 
 Berikut hasil dari evaluasi dengan menghitung loss prediction dan membandingkan prediksi rating dengan aktual rating
 
-![2](https://user-images.githubusercontent.com/110442025/192590827-d79440f3-c78f-429d-a668-1446ced431d4.png)
+Testing Loss: 0.06682105362415314
 
-![3](https://user-images.githubusercontent.com/110442025/192590852-76d2e629-7c47-4b1e-a106-3ef3728a051e.png)
+predicted rating -> 5.276638865470886
+Actual Rating -> 5.0
 
 ## Kesimpulan 
 Semakin kecil loss yang didapat maka semakin baik model yang didapat, lalu sebanding sedikit selisih prediksi rating dengan aktual rating maka semakin baik model. Masih diperlukan beberapa perbaikan data preparation atau hyperparameter tuning untuk membuat model lebih baik lagi 
