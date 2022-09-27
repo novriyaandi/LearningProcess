@@ -2,12 +2,12 @@
 
 ## Domain Proyek
 
-Pada masa sekarang ini film telah menjadi salah satu hiburan favorit utama masyarakat. Jumlah film pertahun terhitung mencapai ribuan. Hal ini membuat suatu keadaan dimana kita kesulitan dalam mencari informasi yang sesuai dengan kriteria penggemar film. Kemungkinan film yang samasekali tidak terpikirkan olehnya namun ternyata menarik untuk dilihat dan sesuai dengan seleranya. Salah satu solusi dari permasalahan ini adalah sistem rekomendasi yang memanfaatkan opini atau rating orang lain terhadap suatu film.
+Pada masa sekarang ini film telah menjadi salah satu hiburan favorit utama masyarakat. Jumlah film pertahun terhitung mencapai ribuan. Hal ini membuat suatu keadaan dimana kita kesulitan dalam mencari informasi yang sesuai dengan kriteria penggemar film. Kemungkinan film yang samasekali tidak terpikirkan olehnya namun ternyata menarik untuk dilihat dan sesuai dengan seleranya. Salah satu solusi dari permasalahan ini adalah sistem rekomendasi yang memanfaatkan opini atau rating orang lain terhadap suatu film.[1]
 
 
 ## Business Understanding
 
-Sistem rekomendasi adalah sistem yang membantu pengguna dalam mengatasi informasi yang meluap dengan memberikan rekomendasi spesifik bagi pengguna dan diharapkan rekomendasi tersebut bisa memenuhi keinginan dan kebutuhan pengguna. Namun pada perkembangannya, diperlukan suatu model yang dapat memberikan nilai lebih kepada pelanggan yaitu berupa rekomendasi yang dapat memberikan informasi mengenai produk yang dianggap sesuai dengan keinginan pelanggan. Karena itu diperlukan model rekomendasi yang tepat agar rekomendasi yang diberikan sistem sesuai dengan keinginan pelanggan, serta mempermudah pelanggan mengambil keputusan yang tepat dalam menentukan produk yang akan dibelinya.
+Sistem rekomendasi adalah sistem yang membantu pengguna dalam mengatasi informasi yang meluap dengan memberikan rekomendasi spesifik bagi pengguna dan diharapkan rekomendasi tersebut bisa memenuhi keinginan dan kebutuhan pengguna. Namun pada perkembangannya, diperlukan suatu model yang dapat memberikan nilai lebih kepada pelanggan yaitu berupa rekomendasi yang dapat memberikan informasi mengenai produk yang dianggap sesuai dengan keinginan pelanggan. Karena itu diperlukan model rekomendasi yang tepat agar rekomendasi yang diberikan sistem sesuai dengan keinginan pelanggan, serta mempermudah pelanggan mengambil keputusan yang tepat dalam menentukan produk yang akan dibelinya.[2]
 
 
 
@@ -101,24 +101,25 @@ Memulai training model dengan batch size sebesar 64, epochs sebesar 20, validati
 
 
 ## Evaluation
-Metrik yang digunakan untuk mengevaluasi model adalah RMSE. *Root Mean Squared Error* (RMSE) dihitung dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Metrik *Root Mean Squared Error* atau RMSE digunakan untuk menghitung tingkat akurasi atau besar error hasil prediksi rating dari sistem terhadap rating sebenarnya yang user berikan terhadap suatu item.
+Metrik yang digunakan untuk mengevaluasi model adalah RMSE. *Root Mean Squared Error* (RMSE) dihitung dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Metrik *Root Mean Squared Error* atau RMSE digunakan untuk menghitung tingkat akurasi atau besar error hasil prediksi rating dari sistem terhadap rating sebenarnya yang user berikan terhadap suatu item.[2]
 
 Sederhana, dan itulah keuntungan utamanya. Mudah dipahami dan untuk dihitung. Metrik ini direkomendasikan untuk model klasifikasi seperti data yang saya gunakan kali ini. 
 
-Pada model yang saya terapkan saya menggunakan fungsi Callback untuk menghentikan training pada model jika MAE sudah mencapai <10% skala data. Semakin kecil MAE dibandingkan skala data semakin baik model yang kita miliki. Skala data yang ingin saya capai yaitu kurang dari 2.1101 
-
-![8](https://user-images.githubusercontent.com/110442025/191185242-ac0c0ea6-d1ce-47c8-8d7e-8d72c7c535f1.png)
-
-Hasil dari training menunjukan model dapat mencapai MAE yang ingin dicapai yaitu kurang dari 10% skala data, hal ini menunjukkan training berhasil dan menghasilkan model yang baik.
+Pada model yang saya terapkan saya menggunakan fungsi Callback untuk menghentikan training pada model jika loss mengalami perubahan kurang dari 0.05.
 
 
-![10](https://user-images.githubusercontent.com/110442025/191186794-e9c5647b-6b6c-456a-a23b-620596ecbcbb.png)
+Hasil dari training menunjukan model berhenti melatih data setelah epochs ke-4
 
-Berikut hasil dari visualisasi menggunakan py.plot untuk model dengan metrik "MAE" dan "loss"
 
-![akurasi model](https://user-images.githubusercontent.com/110442025/191307339-3309761a-3ee9-411c-912d-2c3c1562547e.png)
 
-![model loss](https://user-images.githubusercontent.com/110442025/191307356-2cca174c-3492-4eeb-8b26-4e67bbcfbd49.png)
+Berikut hasil dari evaluasi dengan menghitung loss prediction dan membandingkan prediksi rating dengan aktual rating
+
+![2](https://user-images.githubusercontent.com/110442025/192590827-d79440f3-c78f-429d-a668-1446ced431d4.png)
+
+![3](https://user-images.githubusercontent.com/110442025/192590852-76d2e629-7c47-4b1e-a106-3ef3728a051e.png)
+
+## Kesimpulan 
+Semakin kecil loss yang didapat maka semakin baik model yang didapat, lalu sebanding sedikit selisih prediksi rating dengan aktual rating maka semakin baik model. Masih diperlukan beberapa perbaikan data preparation atau hyperparameter tuning untuk membuat model lebih baik lagi 
 
 
 
@@ -126,9 +127,9 @@ Berikut hasil dari visualisasi menggunakan py.plot untuk model dengan metrik "MA
 
 Referensi :
 
-[1] F. M. Viola, S. L. D. Paiva, and M. A. Savi, “Analysis of the global warming dynamics from temperature time series,” Ecol. Modell., vol. 221, no. 16, pp. 1964–1978, 2010, doi: 10.1016/j.ecolmodel.2010.05.001.
+[1] Halim, Arwin, et al. "Sistem Rekomendasi Film menggunakan Bisecting K-Means dan Collaborative Filtering." (2017): 37-41
 
-[2] M. Desmala, “Related Papers,” Over Rim, pp. 191–199, 2017, doi: 10.2307/j.ctt46nrzt.12.
+[2] Jaja, Visher Laja, Bambang Susanto, and Leopoldus Ricky Sasongko. "Penerapan Metode Item-Based Collaborative Filtering Untuk Sistem Rekomendasi Data MovieLens." d'CARTESIAN: Jurnal Matematika dan Aplikasi 9.2 (2020): 78-83.
 
 
 **---Ini adalah bagian akhir laporan---**
